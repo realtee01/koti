@@ -35,7 +35,7 @@ export default function App() {
           hasScrolled || isMobileMenuOpen ? 'bg-[#f7f7f5]/95 backdrop-blur-md text-[#1a1a1a] py-6 shadow-[0_4px_30px_rgba(0,0,0,0.03)] border-b border-[#1a1a1a]/5' : 'bg-transparent text-white mix-blend-difference'
         }`}
       >
-        <div className="font-serif text-3xl tracking-wide uppercase relative z-[60]">Koti</div>
+        <div className="font-serif text-3xl tracking-wide uppercase relative z-[60]">Kofi</div>
         
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-12 text-xs uppercase tracking-[0.15em] font-medium relative z-[60]">
@@ -81,7 +81,7 @@ export default function App() {
           className="object-cover w-full h-full brightness-[0.7] focus:outline-none will-change-transform"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center mix-blend-overlay">
-          <h1 className="font-serif text-8xl md:text-[10rem] font-light tracking-tighter mb-8 opacity-90 drop-shadow-sm">Koti</h1>
+          <h1 className="font-serif text-8xl md:text-[10rem] font-light tracking-tighter mb-8 opacity-90 drop-shadow-sm">Kofi</h1>
           <p className="font-sans text-xs md:text-sm uppercase tracking-[0.4em] font-light opacity-90 max-w-lg px-4 drop-shadow-md">
             A study of time, nature, and the North.
           </p>
@@ -102,7 +102,7 @@ export default function App() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-[#4a4a4a] text-base leading-relaxed font-light">
             <p>
-              At Koti, we believe that dining is an extension of the landscape. Every ingredient is sourced within a fifty-mile radius, dictated entirely by the micro-seasons. We do not command nature; we listen to it.
+              At Kofi, we believe that dining is an extension of the landscape. Every ingredient is sourced within a fifty-mile radius, dictated entirely by the micro-seasons. We do not command nature; we listen to it.
             </p>
             <p>
               Our kitchen operates on the principles of preservation, fermentation, and absolute respect for the raw materials provided by our local foragers, farmers, and fishermen. 
@@ -392,7 +392,7 @@ export default function App() {
       <footer id="contact" className="py-24 px-8 md:px-24 bg-[#f7f7f5] text-[#1a1a1a]">
         <div className="max-w-[90rem] mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 text-sm font-light">
           <div className="md:col-span-5">
-            <h4 className="font-serif text-4xl mb-6">Koti</h4>
+            <h4 className="font-serif text-4xl mb-6">Kofi</h4>
             <p className="opacity-60 max-w-sm leading-relaxed text-sm">
               A continuously evolving exploration of our harsh, beautiful environment.
             </p>
@@ -406,7 +406,7 @@ export default function App() {
           </div>
           <div className="md:col-span-4">
             <div className="text-xs uppercase tracking-[0.15em] opacity-40 mb-6">Contact</div>
-            <p className="opacity-80 pb-2">info@koti.dk</p>
+            <p className="opacity-80 pb-2">info@kofi.dk</p>
             <p className="opacity-80 pb-2">+45 32 96 32 97</p>
             <div className="mt-8 flex gap-6 text-[#1a1a1a]">
               <a href="#" className="opacity-60 hover:opacity-100 transition-opacity" aria-label="Instagram">
@@ -422,7 +422,7 @@ export default function App() {
           </div>
         </div>
         <div className="max-w-[90rem] mx-auto mt-32 pt-8 border-t border-[#1a1a1a]/10 flex flex-col md:flex-row justify-between items-start md:items-center text-xs opacity-40 uppercase tracking-[0.1em]">
-          <p>&copy; {new Date().getFullYear()} Koti Restaurant</p>
+          <p>&copy; {new Date().getFullYear()} Kofi Restaurant</p>
           <p className="mt-4 md:mt-0">Design & Architecture</p>
         </div>
       </footer>
