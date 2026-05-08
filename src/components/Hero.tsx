@@ -16,8 +16,8 @@ export default function Hero() {
         className="object-cover w-full h-full brightness-[0.7] focus:outline-none will-change-transform"
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center mix-blend-overlay">
-        <h1 className="font-serif text-8xl md:text-[10rem] font-light tracking-tighter mb-8 opacity-90 drop-shadow-sm">Kofi</h1>
-        <p className="font-sans text-xs md:text-sm uppercase tracking-[0.4em] font-light opacity-90 max-w-lg px-4 drop-shadow-md">
+        <h1 className="font-serif text-8xl lg:text-[10rem] font-light tracking-tighter mb-8 opacity-90 drop-shadow-sm">Kofi</h1>
+        <p className="font-sans text-xs lg:text-sm uppercase tracking-[0.4em] font-light opacity-90 max-w-lg px-4 drop-shadow-md">
           A study of time, nature, and the North.
         </p>
       </div>

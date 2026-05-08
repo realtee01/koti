@@ -13,7 +13,7 @@ export default function AtmosphereVideo() {
 
   return (
     <section className="py-12 pb-32 px-8 w-full flex items-center justify-center">
-      <div className="relative w-full max-w-[320px] md:max-w-[400px] aspect-[9/16] overflow-hidden bg-[#e8e8e5] will-change-transform shadow-xl rounded-sm pointer-events-none">
+      <div className="relative w-full max-w-[320px] lg:max-w-[400px] aspect-[9/16] overflow-hidden bg-[#e8e8e5] will-change-transform shadow-xl rounded-sm pointer-events-none">
         
         {/* Loading Overlay */}
         <div 
