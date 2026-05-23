@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
+import BackToTop from './components/BackToTop';
 
 // Code splitting / Lazy Loading for below-the-fold components
 const About = lazy(() => import('./components/About'));
@@ -29,6 +30,9 @@ export default function App() {
         <Maps />
         <Footer />
       </Suspense>
+
+      {/* Minimal Back to top button */}
+      <BackToTop />
     </div>
   );
 }
