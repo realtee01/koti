@@ -19,29 +19,34 @@ export default function Hero() {
 
   return (
     <header className="relative h-screen w-full select-none overflow-hidden bg-black">
-      <AnimatePresence mode="wait">
+      {/* Preloaded & Layered Background Images for Seamless Cross-fade */}
+      {IMAGES.map((src, index) => (
         <motion.div
-          key={currentIndex}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.98 }}
+          key={index}
+          initial={false}
+          animate={{ 
+            opacity: currentIndex === index ? 1 : 0,
+            scale: currentIndex === index ? 1 : 1.05
+          }}
           transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
           className="absolute inset-0 w-full h-full"
+          style={{ zIndex: currentIndex === index ? 2 : 1 }}
         >
           <img 
-            src={IMAGES[currentIndex]}
-            alt={`Nordic restaurant atmospheric scene ${currentIndex + 1}`}
+            src={src}
+            alt={`Nordic restaurant atmospheric scene ${index + 1}`}
             className="object-cover w-full h-full brightness-[0.6] will-change-transform"
-            fetchPriority="high"
-            decoding="sync"
+            fetchPriority={index === 0 ? "high" : "auto"}
+            loading={index === 0 ? "eager" : "lazy"}
+            decoding="async"
           />
         </motion.div>
-      </AnimatePresence>
+      ))}
 
-      <div className="absolute inset-0 bg-[#1a1a1a]/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[#1a1a1a]/10 pointer-events-none z-10" />
 
       {/* Typography Overlay */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white text-center mix-blend-overlay pointer-events-none">
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-white text-center mix-blend-overlay pointer-events-none">
         <h1 className="font-serif text-8xl lg:text-[10rem] font-light tracking-tighter mb-8 opacity-90 drop-shadow-sm">Kofi</h1>
         <p className="font-sans text-xs lg:text-sm uppercase tracking-[0.4em] font-light opacity-90 max-w-lg px-4 drop-shadow-md">
           A study of time, nature, and the North.
@@ -49,7 +54,7 @@ export default function Hero() {
       </div>
 
       {/* Slideshow Progress Indicators */}
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30 flex gap-3">
         {IMAGES.map((_, index) => (
           <button
             key={index}
@@ -62,7 +67,7 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-white/70 text-xs tracking-[0.2em] uppercase mix-blend-difference animate-pulse pointer-events-none z-10">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-white/70 text-xs tracking-[0.2em] uppercase mix-blend-difference animate-pulse pointer-events-none z-20">
         Scroll
       </div>
     </header>
