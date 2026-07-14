@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Menu as MenuIcon, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navigation() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     let ticking = false;
@@ -21,21 +23,24 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // If we are not on the home page, always show the solid background
+  const isSolid = hasScrolled || isMobileMenuOpen || location.pathname !== '/';
+
   return (
     <nav 
       className={`fixed top-0 w-full z-50 px-8 lg:px-16 py-8 flex justify-between items-center transition-all duration-700 ${
-        hasScrolled || isMobileMenuOpen ? 'bg-[#f7f7f5]/95 backdrop-blur-md text-[#1a1a1a] py-6 shadow-[0_4px_30px_rgba(0,0,0,0.03)] border-b border-[#1a1a1a]/5' : 'bg-transparent text-white mix-blend-difference'
+        isSolid ? 'bg-[#f7f7f5]/95 backdrop-blur-md text-[#1a1a1a] py-6 shadow-[0_4px_30px_rgba(0,0,0,0.03)] border-b border-[#1a1a1a]/5' : 'bg-transparent text-white mix-blend-difference'
       }`}
     >
-      <div className="font-serif text-3xl tracking-wide uppercase relative z-[60]">Kofi</div>
+      <Link to="/" className="font-serif text-3xl tracking-wide uppercase relative z-[60]">Kofi</Link>
       
       {/* Desktop Nav */}
       <div className="hidden lg:flex gap-12 text-xs uppercase tracking-[0.15em] font-medium relative z-[60]">
-        <a href="#menu" className="hover:opacity-50 transition-opacity">Menu</a>
-        <a href="#about" className="hover:opacity-50 transition-opacity">About The Chef</a>
-        <a href="#reservations" className="hover:opacity-50 transition-opacity">Reservations</a>
+        <Link to="/menu" className="hover:opacity-50 transition-opacity">Menu</Link>
+        <Link to="/about" className="hover:opacity-50 transition-opacity">About The Chef</Link>
+        <Link to="/reservations" className="hover:opacity-50 transition-opacity">Reservations</Link>
+        <Link to="/maps" className="hover:opacity-50 transition-opacity">Location</Link>
         <a href="#contact" className="hover:opacity-50 transition-opacity">Contact</a>
-        <a href="#maps" className="hover:opacity-50 transition-opacity">Maps</a>
       </div>
 
       {/* Mobile Toggle */}
@@ -63,11 +68,11 @@ export default function Navigation() {
           isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <div className="text-[10px] uppercase tracking-[0.2em] opacity-40 mb-2 border-b border-[#1a1a1a]/10 pb-4">Navigation</div>
-          <a href="#menu" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-50 transition-opacity">Menu</a>
-          <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-50 transition-opacity">About The Chef</a>
-          <a href="#reservations" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-50 transition-opacity">Reservations</a>
+          <Link to="/menu" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-50 transition-opacity">Menu</Link>
+          <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-50 transition-opacity">About The Chef</Link>
+          <Link to="/reservations" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-50 transition-opacity">Reservations</Link>
+          <Link to="/maps" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-50 transition-opacity">Location</Link>
           <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-50 transition-opacity">Contact</a>
-          <a href="#maps" onClick={() => setIsMobileMenuOpen(false)} className="hover:opacity-50 transition-opacity">Maps</a>
         </div>
         
         <div className={`mt-auto mb-10 border-t border-[#1a1a1a]/10 pt-8 flex flex-col gap-4 text-[10px] uppercase tracking-[0.2em] opacity-60 transition-all duration-1000 delay-200 ease-[cubic-bezier(0.7,0,0.3,1)] ${
